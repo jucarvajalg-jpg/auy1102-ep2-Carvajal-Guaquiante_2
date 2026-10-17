@@ -340,7 +340,7 @@ El objetivo del pipeline es detectar errores funcionales y problemas de segurida
 
 Enlace a la ejecución de GitHub Actions:
 
-[Consultar ejecución del pipeline en GitHub Actions](https://github.com/jucarvajalg-jpg/auy1102-ep2-Carvajal-Guaquiante_2/actions/runs/39053414367/job/117456428004)
+[Consultar ejecución del pipeline en GitHub Actions](https://github.com/jucarvajalg-jpg/auy1102-ep2-Carvajal-Guaquiante_2/actions)
 
 La ejecución debe revisarse para comprobar qué pruebas se ejecutaron, cuáles aprobaron y cuáles fallaron.
 
