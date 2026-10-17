@@ -34,19 +34,24 @@ def usuario(peticiones, tiempos, errores, candado):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Prueba de carga de BiblioTech")
-    parser.add_argument("--usuarios", type=int, default=10, help="usuarios simultáneos")
-    parser.add_argument("--peticiones", type=int, default=10, help="búsquedas por usuario")
+    parser = argparse.ArgumentParser(
+        description="Prueba de carga de BiblioTech")
+    parser.add_argument("--usuarios", type=int, default=10,
+                        help="usuarios simultáneos")
+    parser.add_argument("--peticiones", type=int,
+                        default=10, help="búsquedas por usuario")
     args = parser.parse_args()
 
     tiempos, errores, candado = [], [], threading.Lock()
     hilos = [threading.Thread(target=usuario, args=(args.peticiones, tiempos, errores, candado))
              for _ in range(args.usuarios)]
-    print(f"Lanzando {args.usuarios} usuarios x {args.peticiones} búsquedas...")
+    print(
+        f"Lanzando {args.usuarios} usuarios x {args.peticiones} búsquedas...")
     inicio = time.perf_counter()
     for hilo in hilos:
         hilo.start()
-        time.sleep(RAMPA_SEGUNDOS / args.usuarios)  # los usuarios llegan de forma gradual
+        # los usuarios llegan de forma gradual
+        time.sleep(RAMPA_SEGUNDOS / args.usuarios)
     for hilo in hilos:
         hilo.join()
     duracion = time.perf_counter() - inicio

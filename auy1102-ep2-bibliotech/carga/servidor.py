@@ -49,7 +49,8 @@ class BiblioTechWeb(BaseHTTPRequestHandler):
             self._responder(503, {"error": "Servidor saturado"})
             return
         try:
-            termino = parse_qs(urlparse(self.path).query).get("titulo", [""])[0]
+            termino = parse_qs(urlparse(self.path).query).get(
+                "titulo", [""])[0]
             with candado:
                 visitas += 1
                 resultados = consultar_catalogo(termino)
@@ -74,7 +75,8 @@ class Servidor(ThreadingHTTPServer):
 
 
 if __name__ == "__main__":
-    print(f"BiblioTech escuchando en http://localhost:{PUERTO}  (Ctrl+C para detener)")
+    print(
+        f"BiblioTech escuchando en http://localhost:{PUERTO}  (Ctrl+C para detener)")
     try:
         Servidor(("localhost", PUERTO), BiblioTechWeb).serve_forever()
     except KeyboardInterrupt:

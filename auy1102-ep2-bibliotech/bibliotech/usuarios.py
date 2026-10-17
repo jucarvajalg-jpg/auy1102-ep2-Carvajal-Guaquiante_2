@@ -52,6 +52,7 @@ def registrar_usuario(conexion, rut, nombre, clave, tipo="estudiante"):
     )
     conexion.commit()
 
+
 def obtener_usuario(conexion, rut):
     """Devuelve (rut, nombre, tipo) del usuario, o None si no existe."""
     consulta = """
@@ -67,10 +68,10 @@ def obtener_usuario(conexion, rut):
     return tuple(resultado)
 
 
-
 def buscar_usuario(conexion, rut):
     """Busca un usuario por su RUT."""
     return obtener_usuario(conexion, rut)
+
 
 def autenticar(conexion, rut, clave):
     """Autentica al usuario y devuelve True o False."""
@@ -85,9 +86,11 @@ def autenticar(conexion, rut, clave):
 
     return resultado is not None
 
+
 def generar_token_recuperacion():
     """Genera un token aleatorio seguro para recuperación."""
     return secrets.token_hex(16)
+
 
 def generar_token_sesion():
     """Genera un token aleatorio seguro para la sesión."""

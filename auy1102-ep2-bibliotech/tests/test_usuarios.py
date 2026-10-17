@@ -21,7 +21,8 @@ def _base_con_un_usuario():
 
 def test_registrar_y_buscar_usuario():
     conexion = _base_con_un_usuario()
-    assert buscar_usuario(conexion, "12345678-5") == ("12345678-5", "Ana Pérez", "estudiante")
+    assert buscar_usuario(
+        conexion, "12345678-5") == ("12345678-5", "Ana Pérez", "estudiante")
 
 
 def test_buscar_usuario_inexistente_devuelve_none():
@@ -49,7 +50,8 @@ def test_token_tiene_32_caracteres_y_no_se_repite():
 def test_sql_injection_en_obtener_usuario(conexion):
     """Valida que la búsqueda no sea vulnerable a inyección SQL (pista: ' OR '1'='1)."""
     # Guardamos un usuario real en la base de datos
-    registrar_usuario(conexion, "11111111-1", "Ana Pérez", "secret123", "estudiante")
+    registrar_usuario(conexion, "11111111-1", "Ana Pérez",
+                      "secret123", "estudiante")
 
     # Inyectamos payload SQL
     rut_malicioso = "' OR '1'='1"

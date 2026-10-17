@@ -19,7 +19,8 @@ def calcular_multa(dias_atraso, tipo_usuario):
       - Una cantidad de días negativa no tiene sentido: debe lanzar ValueError.
     """
     if dias_atraso < 0:
-        raise ValueError("La cantidad de días de atraso no puede ser negativa.")
+        raise ValueError(
+            "La cantidad de días de atraso no puede ser negativa.")
 
     dias_cobrables = dias_atraso
     if tipo_usuario == "docente":
@@ -65,4 +66,4 @@ def resumen_prestamo(titulo, dias, tipo_usuario="estudiante"):
     return (
         f"Libro: {titulo} | Usuario: {tipo_usuario} | "
         f"Devolver antes del: {fecha_limite.isoformat()}"
-        )
+    )
