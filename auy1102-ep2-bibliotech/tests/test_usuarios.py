@@ -12,6 +12,7 @@ from bibliotech.usuarios import (
     obtener_usuario,
 )
 
+
 def _base_con_un_usuario():
     conexion = conectar()
     registrar_usuario(conexion, "12345678-5", "Ana Pérez", "clave-segura-1")
@@ -70,4 +71,3 @@ def test_registrar_usuario_con_comilla_simple_en_nombre(conexion):
     usuario = obtener_usuario(conexion, rut)
     assert usuario is not None
     assert usuario[1] == "Bernardo O'Higgins"
-    

@@ -26,4 +26,3 @@ def enviar_aviso(url_webhook, mensaje):
         timeout=5
     )
     return respuesta.status_code == 200
-
