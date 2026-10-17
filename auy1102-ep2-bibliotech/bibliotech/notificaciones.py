@@ -1,7 +1,5 @@
-"""Envío de avisos de vencimiento por correo y por webhook.
+"""Envío de avisos de vencimiento por correo y por webhook."""
 
-Este módulo no se ejecuta en las pruebas: se usa en producción.
-"""
 import requests
 from jinja2 import Environment, select_autoescape
 
