@@ -95,4 +95,3 @@ def generar_token_recuperacion():
 def generar_token_sesion():
     """Genera un token aleatorio seguro para la sesión."""
     return secrets.token_hex(16)
-
